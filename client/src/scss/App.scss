@@ -1,0 +1,9 @@
+@import '_reseter';
+
+.wrapper{
+    display: flex;
+    height: 100vh;
+    min-width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+}

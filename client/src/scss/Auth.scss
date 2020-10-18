@@ -1,0 +1,118 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+$mainCol: #1bdaaa;
+$inputFocus: #f1c40f;
+$btnCol1: #feca57;
+$btnCol2: #ecf0f1;
+%btnTemp {
+  background: none;
+  border-radius: 12px;
+  padding: 3px 8px;
+  letter-spacing: 0.3px;
+  font-size: 15px;
+  transition: 0.2s ease-in;
+}
+%formField {
+  div:first-child {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    margin: 0px 0px 4px 0px;
+  }
+  div:last-child {
+    input {
+      background: none;
+      width: 100%;
+      color: #ffffff;
+      border-bottom: 1px solid #ffffff;
+      transition: border-bottom 0.1s ease-in;
+      padding: 5px 0;
+      @include placeholder() {
+        color: #ffffffcb;
+        font-size: 13px;
+      }
+    }
+    input:focus {
+      color: $inputFocus;
+      border-bottom: 1px solid $inputFocus;
+      @include placeholder() {
+        color: $inputFocus;
+        font-size: 13px;
+      }
+    }
+  }
+}
+.Auth {
+  flex: 1 1 auto;
+  .Auth__title {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 31px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    .Auth__row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .Auth__window {
+        background: $mainCol;
+        color: #ffffff;
+        margin: 25px 0;
+        border-radius: 12px;
+        width: 600px;
+        box-shadow: 0px 0px 1px #1bdaaa;
+        padding: 18px 18px;
+        .Auth__subtitle {
+          font-size: 20px;
+          letter-spacing: 0.5px;
+          margin: 0px 0px 14px 0px;
+        }
+        .Auth__email {
+          @extend %formField;
+        }
+        .Auth__password {
+          margin: 20px 0;
+          @extend %formField;
+        }
+        .Auth__buttons {
+          padding: 15px 0px 0px 0px;
+          button:first-child {
+            margin: 0px 7px 0px 0px;
+            border: 1px solid $btnCol1;
+            color: $btnCol1;
+            @extend %btnTemp;
+            &:hover {
+              color: #ffffff;
+              background: $btnCol1;
+            }
+          }
+          button:last-child {
+            border: 1px solid $btnCol2;
+            color: $btnCol2;
+            @extend %btnTemp;
+            &:hover {
+              color: #000000;
+              background: $btnCol2;
+            }
+          }
+        }
+      }
+    }
+  }
+}

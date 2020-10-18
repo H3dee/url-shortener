@@ -1,0 +1,17 @@
+$mainCol: #1bdaaa;
+
+.content{
+    .container{
+        padding: 20px 0;
+        .content__title{
+            padding: 7px 0px 0px 0px;
+            font-size: 18px;
+            letter-spacing: 0.5px;
+        }
+        .content__input{
+            input:focus{
+                color: $mainCol;
+            }
+        }
+    }
+}
